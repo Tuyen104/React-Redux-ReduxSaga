@@ -6,19 +6,20 @@ const initialState = {
 };
 
 function employeeList (state = initialState, action){
-    if(action.type === ActionType.EmployeeList.AddEmployee){
-        return Object.assign({}, state, {
-            employees: state.employees.concat(action.payload)
-        });
+    switch(action.type) {
+        case ActionType.EmployeeList.AddEmployee: {
+            return Object.assign({}, state, {
+                employees: state.employees.concat(action.payload)
+            });
+        }
+        case ActionType.EmployeeList.DataLoaded: {
+            return Object.assign({}, state, {
+                apiEmployees: state.apiEmployees.concat(action.payload)
+            });
+        }
+        default: 
+            return state;
     }
-    if(action.type === ActionType.EmployeeList.DataLoaded){
-        return Object.assign({}, state, {
-            apiEmployees: state.apiEmployees.concat(action.payload)
-        });
-    }
-
-
-    return state;
 };
 
 export default employeeList;

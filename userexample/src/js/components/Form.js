@@ -27,14 +27,15 @@ class ConnectedForm extends Component {
         const {employee_name, employee_age} = this.state;
         return(
             <form onSubmit={this.handleSubmit}>
-                <div>
-                    <label htmlFor="employee_name">employee_name</label>
-                    <input type="text" id="employee_name" value={employee_name} onChange={this.handleChange}/>
-                    <br/>
-                    <label htmlFor="employee_age">employee_age</label>
-                    <input type="text" id="employee_age" value={employee_age} onChange={this.handleChange}/>
+                <div className="form-group">
+                    <label>Name</label>
+                    <input type="text" className="form-control" id="employee_name" value={employee_name} onChange={this.handleChange}/>
                 </div>
-                <button type="submit">Save</button>
+                <div className="form-group">
+                    <label>Age</label>
+                    <input type="text" className="form-control" id="employee_age" value={employee_age} onChange={this.handleChange}/>
+                </div>
+                <button type="submit" className="btn btn-info">Save</button>
             </form>
         );
     }
